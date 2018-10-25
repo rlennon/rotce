@@ -26,9 +26,9 @@ body {
   background-color: #7dd4ce;
   border-radius: 20px;
 }
-/* .form-signin .register {
+ .form-signin .register {
   font-weight: 400;
-} */
+} 
 .form-signin .form-control {
   position: relative;
   box-sizing: border-box;
