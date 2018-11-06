@@ -23,10 +23,16 @@ h1{
     color:white;
     font-size: 48px;
 }
+h3{
+
+  font-family: "Impact", Arial, sans-serif;
+  font-style: italic;
+}
 .box{
       width: 800px;
       margin:0 auto;
-      height:200px;
+      padding:20px;
+      height:auto;
       border: 1px solid black;
       background-color: #e6f7ff;
       text-align: left;
