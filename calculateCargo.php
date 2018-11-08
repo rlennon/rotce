@@ -1,4 +1,5 @@
 <?php
+	// databse connections
 	include("config.php");
 
 	if (isset($_POST['submit'])) {
@@ -8,8 +9,6 @@
 		$result = mysqli_query($db, $query);
 		$row = mysqli_fetch_assoc($result);
 		$row['Area'];
-
-
 
 		$shortMinions = $_POST['inputShort'];
 		$query2 = "SELECT * FROM Minions WHERE Type='Small'";
@@ -21,13 +20,12 @@
 		$result3 = mysqli_query($db, $query3);
 		$row3 = mysqli_fetch_assoc($result3);
 
-
 		$smallWeapons = $_POST['inputSmall'];
 		$query4= "SELECT * FROM Weapons WHERE Type='Small'";
 		$result4 = mysqli_query($db, $query4);
 		$row4 = mysqli_fetch_assoc($result4);
 
-
+		// Time and date
 		$date = $_POST['inputDate'];
 		$time = $_POST['inputTime'];
 
@@ -50,31 +48,6 @@
 		$totalCargoWeight = ($row['Weight'] * $tallMinions)+ ($row2['Weight'] * $shortMinions)+($row3['Weight'] * $largeWeapons)+($row4['Weight']  * $smallWeapons);
 		$totalNumberCargo = $tallMinions+$shortMinions+$largeWeapons+$smallWeapons;
 
-
-		echo "Total Area of Tall Minions = "; echo $areaTallMinions;
-		echo "<br>";
-		echo "Total Weight of Tall Minions = "; echo $row['Weight'] * $tallMinions;
-		echo "<br>";
-		echo "Total Area of Small Minions = "; echo $row2['Area'] * $shortMinions;
-		echo "<br>";
-		echo "Total Weight of Small Minions = "; echo $row2['Weight'] * $shortMinions;
-		echo "<br>";
-		echo "Total Area of Large Weapons = "; echo $row3['Area'] * $largeWeapons;
-		echo "<br>";
-		echo "Total Weight of Large Weapons = "; echo $row3['Weight'] * $largeWeapons;
-		echo "<br>";
-		echo "Total Area of Small Weapons = "; echo $row4['Area']  * $smallWeapons;
-		echo "<br>";
-		echo "Total Weight of Small Weapons = "; echo $row4['Weight']  * $smallWeapons;
-
-		echo "<br>";
-		echo "<br>";
-		echo "Total Cargo Area = "; echo ($row['Area'] * $tallMinions)+ ($row2['Area'] * $shortMinions)+($row3['Area'] * $largeWeapons)+($row4['Area']  * $smallWeapons);
-		echo "<br>";
-        echo "Total Cargo Weight = "; echo ($row['Weight'] * $tallMinions)+ ($row2['Weight'] * $shortMinions)+($row3['Weight'] * $largeWeapons)+($row4['Weight']  * $smallWeapons);
-		echo "<br>";
-        echo "Total Number of Cargo= "; echo  $tallMinions+$shortMinions+$largeWeapons+$smallWeapons;
-		echo "<br>";
 	}
 	?>
 <!doctype html>
@@ -94,7 +67,6 @@
 </head>
 
   <body >
-
     <div class="wrapper">
         <div class="content">
           <ul>
@@ -105,6 +77,7 @@
 					<div class="box">
 				    <h3>Summary</h3>
 				    <br>
+						<!-- Display data into table -->
 						<label>Total Area of Tall Minions</label>
 				    <input  class="form-control tallPlaceholder" value=<?php echo "$totalAreaTallMinions";?> readonly></br>
 						<label>Total Weight of Tall Minions</label>
@@ -127,14 +100,15 @@
 						<input  class="form-control shortPlaceholder" value=<?php echo "$totalCargoWeight";?> readonly><br>
 						<label>Total Number of Cargo</label>
 						<input  class="form-control shortPlaceholder" value=<?php echo "$totalNumberCargo";?> readonly><br>
-
-    <button type="button" onclick="location.href='home.html';" class="btn btn-danger">Back</button>
-    <button type="button" onclick="location.href='summary.html';" class="btn btn-success">Next</button>
-
+						<br>
+						<br>
+						<!-- Redirect to home.php -->
+    				<button type="button" onclick="location.href='home.php';" class="btn btn-danger">Back</button>
+    				<button type="button" onclick="location.href='home.php';" class="btn btn-success">Next</button>
 
     </div>
   </body>
-  <div class="footer">
-    &copy; 2018 DevOps
-  </div>
+			  <div class="footer">
+			    &copy; 2018 DevOps
+			  </div>
 </html>
