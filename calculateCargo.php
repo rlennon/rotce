@@ -84,13 +84,31 @@
           </ul>
           <img class="img-float" src="img/dr.png" alt="" width="350" height="350">
 
-    <div class="box">
-    <h3>Summary</h3>
-    <br>
-    <input  class="form-control tallPlaceholder" placeholder="Ships" readonly></br>
-    <input  class="form-control shortPlaceholder" placeholder="Subs" readonly><br>
-    <input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
-
+					<div class="box">
+				    <h3>Summary</h3>
+				    <br>
+						<label>Total Area of Tall Minions</label>
+				    <input  class="form-control tallPlaceholder" value""= readonly></br>
+						<label>Total Weight of Tall Minions</label>
+				    <input  class="form-control shortPlaceholder" value""= readonly><br>
+						<label>Total Area of Small Minions</label>
+				    <input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Weight of Small Minions</label>
+						<input  class="form-control shortPlaceholder" placeholder="Subs" readonly><br>
+						<label>Total Area of Large Weapons</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Weight of Large Weapons</label>
+						<input  class="form-control shortPlaceholder" placeholder="Subs" readonly><br>
+						<label>Total Area of Small Weapons</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Weight of Small Weapons</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Cargo Area</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Cargo Weight</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<label>Total Number of Cargo</label>
+						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
 
     <button type="button" onclick="location.href='home.html';" class="btn btn-danger">Back</button>
     <button type="button" onclick="location.href='summary.html';" class="btn btn-success">Next</button>
