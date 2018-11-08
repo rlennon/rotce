@@ -106,27 +106,27 @@
 				    <h3>Summary</h3>
 				    <br>
 						<label>Total Area of Tall Minions</label>
-				    <input  class="form-control tallPlaceholder" value""= readonly></br>
+				    <input  class="form-control tallPlaceholder" value=<?php echo "$totalAreaTallMinions";?> readonly></br>
 						<label>Total Weight of Tall Minions</label>
-				    <input  class="form-control shortPlaceholder" value""= readonly><br>
+				    <input  class="form-control shortPlaceholder" value=<?php echo "$totalWeightTallMinions";?> readonly><br>
 						<label>Total Area of Small Minions</label>
-				    <input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+				    <input  class="form-control shortPlaceholder" value=<?php echo "$totalAreaSmallMinions";?> readonly><br>
 						<label>Total Weight of Small Minions</label>
-						<input  class="form-control shortPlaceholder" placeholder="Subs" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalWeightSmallMinions";?> readonly><br>
 						<label>Total Area of Large Weapons</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalAreaLargeWeapons";?> readonly><br>
 						<label>Total Weight of Large Weapons</label>
-						<input  class="form-control shortPlaceholder" placeholder="Subs" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalWeightLargeWeapons";?> readonly><br>
 						<label>Total Area of Small Weapons</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalAreaSamllWeapons";?> readonly><br>
 						<label>Total Weight of Small Weapons</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalWeightSmallWeapons";?> readonly><br>
 						<label>Total Cargo Area</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalCargoArea";?> readonly><br>
 						<label>Total Cargo Weight</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalCargoWeight";?> readonly><br>
 						<label>Total Number of Cargo</label>
-						<input  class="form-control shortPlaceholder" placeholder="Ship by" readonly><br>
+						<input  class="form-control shortPlaceholder" value=<?php echo "$totalNumberCargo";?> readonly><br>
 
     <button type="button" onclick="location.href='home.html';" class="btn btn-danger">Back</button>
     <button type="button" onclick="location.href='summary.html';" class="btn btn-success">Next</button>
