@@ -108,7 +108,4 @@
 
     </div>
   </body>
-			  <div class="footer">
-			    &copy; 2018 DevOps
-			  </div>
 </html>
