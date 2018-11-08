@@ -31,7 +31,25 @@
 		$date = $_POST['inputDate'];
 		$time = $_POST['inputTime'];
 
-		$areaTallMinions = ($row['Area'] * $tallMinions);
+		// Variable store (Updated for table use)
+
+		// Minions
+		$totalAreaTallMinions = ($row['Area'] * $tallMinions);
+		$totalWeightTallMinions = $row['Weight'] * $tallMinions;
+		$totalAreaSmallMinions =  $row2['Area'] * $shortMinions;
+		$totalWeightSmallMinions = $row2['Weight'] * $shortMinions;
+
+		// Weapons
+		$totalAreaLargeWeapons = $row3['Area'] * $largeWeapons;
+		$totalWeightLargeWeapons = $row3['Weight'] * $largeWeapons;
+		$totalAreaSamllWeapons = $row4['Area']  * $smallWeapons;
+		$totalWeightSmallWeapons = $row4['Weight']  * $smallWeapons;
+
+		// Cargo
+		$totalCargoArea = ($row['Area'] * $tallMinions)+ ($row2['Area'] * $shortMinions)+($row3['Area'] * $largeWeapons)+($row4['Area']  * $smallWeapons);
+		$totalCargoWeight = ($row['Weight'] * $tallMinions)+ ($row2['Weight'] * $shortMinions)+($row3['Weight'] * $largeWeapons)+($row4['Weight']  * $smallWeapons);
+		$totalNumberCargo = $tallMinions+$shortMinions+$largeWeapons+$smallWeapons;
+
 
 		echo "Total Area of Tall Minions = "; echo $areaTallMinions;
 		echo "<br>";
