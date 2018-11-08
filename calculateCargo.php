@@ -33,7 +33,7 @@
 
 		$areaTallMinions = ($row['Area'] * $tallMinions);
 
-		echo "Total Area of Tall Minions = "; echo $areaTallMinions
+		echo "Total Area of Tall Minions = "; echo $areaTallMinions;
 		echo "<br>";
 		echo "Total Weight of Tall Minions = "; echo $row['Weight'] * $tallMinions;
 		echo "<br>";
