@@ -48,6 +48,23 @@
 		$totalCargoWeight = ($row['Weight'] * $tallMinions)+ ($row2['Weight'] * $shortMinions)+($row3['Weight'] * $largeWeapons)+($row4['Weight']  * $smallWeapons);
 		$totalNumberCargo = $tallMinions+$shortMinions+$largeWeapons+$smallWeapons;
 
+		//Vessels
+		$shipArea = 200;
+		$shipWeight = 200;
+		$shipSpeed = 1.5;
+
+		$subArea = 300;
+		$subWeight = 300;
+		$subSpeed = 1;
+
+		//ToDo - Calculation for weight - currently not an issue, as area is greater/equal to weight on all types
+		$noOfShipsNeeded = ceil($totalCargoArea / $shipArea);
+		$noOfSubsNeeded = ceil($totalCargoArea / $subArea);
+
+		//No of Shipments
+		$noOfShipGroups = $noOfShipsNeeded / 5;
+		$noOfSubGroups = $noOfSubsNeeded / 2;
+
 	}
 	?>
 <!doctype html>
@@ -101,6 +118,13 @@
 						<label>Total Number of Cargo</label>
 						<input  class="form-control shortPlaceholder" value=<?php echo "$totalNumberCargo";?> readonly><br>
 						<br>
+						<p>No. Ships: <?php echo $noOfShipsNeeded; ?></p>
+						<p>OR</p>
+						<p>No. Subs: <?php echo $noOfSubsNeeded; ?></p>
+						<br>
+						<p>No. Ship Groups: <?php echo $noOfShipGroups; ?></p>
+						<p>OR</p>
+						<p>No. Sub Groups: <?php echo $noOfSubGroups; ?></p>
 						<br>
 						<!-- Redirect to home.php -->
     				<button type="button" onclick="location.href='home.php';" class="btn btn-danger">Back</button>
