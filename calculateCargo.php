@@ -62,8 +62,26 @@
 		$noOfSubsNeeded = ceil($totalCargoArea / $subArea);
 
 		//No of Shipments
-		$noOfShipGroups = $noOfShipsNeeded / 5;
-		$noOfSubGroups = $noOfSubsNeeded / 2;
+		$noOfShipGroups = ceil($noOfShipsNeeded / 5);
+		$noOfSubGroups = ceil($noOfSubsNeeded / 2);
+
+		//Delivery Time
+		$dt = new DateTime;
+		$dt->setTime(0, 0);
+
+		for($i=0;$i<$noOfShipGroups;$i++) //For every ship group, loop through
+		{
+			$dt->add(new DateInterval('PT2H')); //Every ship groups takes one hour to load, one hour to disembark
+			$dt->add(new DateInterval('PT1H30M')); //Every ship takes 1:30 hrs to travel
+
+			//Vessel groups require 10mins after offloading before next group can enter, last group is not counted as doesn't need extra time
+			for($j=0;$j<$noOfShipGroups-1;$j++)
+				$dt->add(new DateInterval('PT10M'));
+		}
+
+		$days = $dt->format('d');
+		$hours = $dt->format('H');
+		$minutes = $dt->format('i');
 
 	}
 	?>
@@ -126,6 +144,7 @@
 						<p>OR</p>
 						<p>No. Sub Groups: <?php echo $noOfSubGroups; ?></p>
 						<br>
+						<p>Time taken: <?php echo ($days.' days '.$hours.' hours '.$minutes.' minutes');?></p>
 						<!-- Redirect to home.php -->
     				<button type="button" onclick="location.href='home.php';" class="btn btn-danger">Back</button>
     				<button type="button" onclick="location.href='home.php';" class="btn btn-success">Next</button>
