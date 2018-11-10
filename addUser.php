@@ -1,5 +1,23 @@
 <?php
 include("config.php");
+ 
+    //check if username and password are not empty
+if (isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
+    //be sure to validate and clean your variables
+      $username = $_POST['inputUsername'];
+      $password = $_POST['inputPassword'];
+
+      if($password==$_POST['inputConfirm']) //check if passsword enter == confirm password
+        {
+          echo '<script language="javascript"> alert("User added to System")</script>';
+          $query = "INSERT INTO users (UserID, Password) VALUES('$username','$password') "; //Add User to Database
+          $result = mysqli_query($db, $query);
+       }
+      else //when passwords don't match
+       {
+      echo '<script language="javascript"> alert("Passwords Do not Match")</script>';
+       }
+}
 ?>
 
 <!doctype html>
@@ -32,7 +50,7 @@ include("config.php");
     <h3>Add User </h3>
     <br>
     <br>
-    <form action="calculateCargo.php" method="POST">
+    <form action="" method="POST">
     <div class="row">
     	<div class="col-sm-4">
         <h4 class="WhatType">Username:</h4>
