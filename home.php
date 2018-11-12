@@ -23,7 +23,7 @@ include("config.php");
     <div class="wrapper">
         <div class="content">
           <ul>
-              <li><a href="index.html">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
           </ul>
           <img class="img-float" src="img/dr.png" alt="" width="350" height="350">
 
