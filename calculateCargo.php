@@ -1,6 +1,7 @@
 <?php
 	// databse connections
 	include("config.php");
+	   session_start();
 
 	if (isset($_POST['submit'])) {
     //be sure to validate and clean your variables
@@ -125,10 +126,16 @@
 </head>
 
   <body >
+  	        <?php
+      if(!isset($_SESSION['login_user'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:index.php");  
+       }
+?>
     <div class="wrapper">
         <div class="content">
           <ul>
-              <li><a href="index.html">Logout</a></li>
+              <li><a href="logout.php">Logout</a></li>
           </ul>
           <img class="img-float" src="img/dr.png" alt="" width="350" height="350">
 

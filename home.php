@@ -1,5 +1,6 @@
 <?php
 include("config.php");
+session_start();
 ?>
 
 <!doctype html>
@@ -19,6 +20,16 @@ include("config.php");
 </head>
 
   <body >
+    <?php
+      if(!isset($_SESSION['login_user'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:index.php");  
+       }
+
+          echo $_SESSION['login_user'];
+
+          echo "Login Success";
+?>
 
     <div class="wrapper">
         <div class="content">
