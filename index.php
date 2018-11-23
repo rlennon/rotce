@@ -2,6 +2,13 @@
    include("config.php");
    session_start();
 
+   if(isset($_SESSION['login_user']))   // Checking whether the session is already there or not if 
+                              // true then header redirect it to the home page directly 
+ {
+    header("Location:home.php"); 
+ }
+
+
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form
 
@@ -19,7 +26,7 @@
 
       if($count == 1) {
          //session_register("myusername");
-         //$_SESSION['login_user'] = $myusername;
+         $_SESSION['login_user'] = $myusername;
 
          header("location: home.php");
       }else {
