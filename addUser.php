@@ -1,19 +1,23 @@
 <?php
-include("config.php");
+  //Include the config file for DB connection
+  include("config.php");
  
-    //check if username and password are not empty
+    // Check if session variable is set
 if (isset($_POST['inputUsername']) && isset($_POST['inputPassword'])) {
     //be sure to validate and clean your variables
       $username = $_POST['inputUsername'];
       $password = $_POST['inputPassword'];
 
-      if($password==$_POST['inputConfirm']) //check if passsword enter == confirm password
+      //check if passsword enter == confirm password
+      if($password==$_POST['inputConfirm']) 
         {
           echo '<script language="javascript"> alert("User added to System")</script>';
-          $query = "INSERT INTO users (UserID, Password) VALUES('$username','$password') "; //Add User to Database
+          //Add User to Database
+          $query = "INSERT INTO users (UserID, Password) VALUES('$username','$password') "; 
           $result = mysqli_query($db, $query);
        }
-      else //when passwords don't match
+      // If passwords dont match then display alert
+      else 
        {
       echo '<script language="javascript"> alert("Passwords Do not Match")</script>';
        }

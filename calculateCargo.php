@@ -1,7 +1,7 @@
 <?php
-	// databse connections
+  //Include the config file for DB connection
 	include("config.php");
-	   session_start();
+	session_start();
 
 	if (isset($_POST['submit'])) {
     //be sure to validate and clean your variables
@@ -26,34 +26,37 @@
 		$result4 = mysqli_query($db, $query4);
 		$row4 = mysqli_fetch_assoc($result4);
 
-		// Time and date
+		// Save time and date input to variables
 		$date = $_POST['inputDate'];
 		$time = $_POST['inputTime'];
 
-		// Variable store (Updated for table use)
-
-		// Minions
+		// Minion weight calculations
+		// Multiply the area & weight by the number of minions
 		$totalAreaTallMinions = ($row['Area'] * $tallMinions);
 		$totalWeightTallMinions = $row['Weight'] * $tallMinions;
 		$totalAreaSmallMinions =  $row2['Area'] * $shortMinions;
 		$totalWeightSmallMinions = $row2['Weight'] * $shortMinions;
 
-		// Weapons
+		// Weapons weight calculations
+		// Multiply the area & weight by the number of weapons
 		$totalAreaLargeWeapons = $row3['Area'] * $largeWeapons;
 		$totalWeightLargeWeapons = $row3['Weight'] * $largeWeapons;
 		$totalAreaSamllWeapons = $row4['Area']  * $smallWeapons;
 		$totalWeightSmallWeapons = $row4['Weight']  * $smallWeapons;
 
-		// Cargo
+		// Calculate total cargo
 		$totalCargoArea = ($row['Area'] * $tallMinions)+ ($row2['Area'] * $shortMinions)+($row3['Area'] * $largeWeapons)+($row4['Area']  * $smallWeapons);
 		$totalCargoWeight = ($row['Weight'] * $tallMinions)+ ($row2['Weight'] * $shortMinions)+($row3['Weight'] * $largeWeapons)+($row4['Weight']  * $smallWeapons);
 		$totalNumberCargo = $tallMinions+$shortMinions+$largeWeapons+$smallWeapons;
 
-		//Vessels
+		// Constants for the vessel weights
+
+		// Ships
 		$shipArea = 200;
 		$shipWeight = 200;
 		$shipSpeed = 1.5;
 
+		// Subs
 		$subArea = 300;
 		$subWeight = 300;
 		$subSpeed = 1;
@@ -62,17 +65,18 @@
 		$noOfShipsNeeded = ceil($totalCargoArea / $shipArea);
 		$noOfSubsNeeded = ceil($totalCargoArea / $subArea);
 
-		//No of Shipments
+		// Determine the number of shipments that are needed
 		$noOfShipGroups = ceil($noOfShipsNeeded / 5);
 		$noOfSubGroups = ceil($noOfSubsNeeded / 2);
 
-		//Delivery Time
+		// Calculate an estimated final delivery date
 		$dt = new DateTime('00/00/0000 00:00:00');
 		$days = 0;
 		$hours = $dt->format('H');
 		$minutes = $dt->format('i');
 
-		for($i=0;$i<$noOfShipGroups;$i++) //For every ship group, loop through
+		//For every ship group, loop through
+		for($i=0;$i<$noOfShipGroups;$i++) 
 		{
 			if($hours >= 22)
 				$days += 1;
