@@ -1,20 +1,22 @@
 <?php
+  //Include the config file for DB connection
    include("config.php");
    session_start();
 
-   if(isset($_SESSION['login_user']))   // Checking whether the session is already there or not if 
-                              // true then header redirect it to the home page directly 
+   //If the user is logged in then redirect to the homepage
+   if(isset($_SESSION['login_user']))  
  {
     header("Location:home.php"); 
  }
 
 
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form
-
+   if($_SERVER["REQUEST_METHOD"] == "POST") {      
+      //Save username to variable
       $myusername = mysqli_real_escape_string($db,$_POST['username']);
+      //Save password to variable
       $mypassword = mysqli_real_escape_string($db,$_POST['password']);
 
+      //Send login request to DB
       $sql = "SELECT ID FROM users WHERE UserID = '$myusername' and Password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -23,13 +25,13 @@
       $count = mysqli_num_rows($result);
 
       // If result matched $myusername and $mypassword, table row must be 1 row
-
       if($count == 1) {
          //session_register("myusername");
          $_SESSION['login_user'] = $myusername;
-
+        //Login has been sucessful, Redirect to home
          header("location: home.php");
       }else {
+        //Display error if login is invalid
          $error = "Your Login Name or Password is invalid";
       }
    }
@@ -49,19 +51,17 @@
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Custom styles for this template -->
   <link href="css/signin.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
+  <!-- Login form for website -->
   <form class="form-signin" method="post" action="">
-
     <img class="mb-4" src="img/vector.png" alt="" width="150" height="250">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Minion Username</label>
     <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Minion Username" required autofocus>
-
     <label for="inputPassword" class="sr-only">Secret Banana</label>
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Secret Banana" required>
     <div class="register mb-3">
@@ -76,6 +76,7 @@
 
       <p class="mt-5 mb-3 text-muted">&copy; 2018-2020</p>
   </form>
+  <!-- End Login -->
 </body>
 
 </html>
