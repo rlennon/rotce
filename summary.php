@@ -1,3 +1,6 @@
+<?php 
+   session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,6 +18,12 @@
 </head>
 
   <body >
+        <?php
+      if(!isset($_SESSION['login_user'])) // If session is not set then redirect to Login Page
+       {
+           header("Location:index.php");  
+       }
+?>
 
     <div class="wrapper">
         <div class="content">

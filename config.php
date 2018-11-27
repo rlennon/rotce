@@ -1,4 +1,5 @@
 <?php
+   //This file contains the server details
    define('DB_SERVER', '159.69.146.154');
    define('DB_USERNAME', 'rotce_bananas');
    define('DB_PASSWORD', 'WeWilltakeover!');
