@@ -1,6 +1,7 @@
 <?php
-include("config.php");
-session_start();
+  //Include the config file for DB connection
+  include("config.php");
+  session_start();
 ?>
 
 <!doctype html>
@@ -21,7 +22,8 @@ session_start();
 
   <body >
     <?php
-      if(!isset($_SESSION['login_user'])) // If session is not set then redirect to Login Page
+      //If the session has not been set then return user to login page
+      if(!isset($_SESSION['login_user']))
        {
            header("Location:index.php");  
        }
@@ -43,6 +45,7 @@ session_start();
     <h3>Enter </h3>
     <br>
     <br>
+    <!-- Form which allows user to input the number of Minions, Weapons and Date -->
     <form action="calculateCargo.php" method="POST">
     <div class="row">
     	<div class="col-sm-4">
